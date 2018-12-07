@@ -11,8 +11,8 @@ public:
     SinglyLinkedList()= default;
     ~SinglyLinkedList()= default;
 
-    void addNode(Node *node) override;
-    void removeNode(Node *node) override;
+    void addNode(Node<int> *node) override;
+    void removeNode(Node<int> *node) override;
 };
 
 

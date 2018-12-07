@@ -8,13 +8,13 @@ LinkedList::LinkedList() : head(nullptr), last(nullptr), size(0) {}
 
 void LinkedList::printLinkedList() {
 
-    Node *p = nullptr;
+    Node<int> *p = nullptr;
     p = head;
 
     if (p != nullptr) {
         while (p != nullptr) {
             cout << *p << " -> ";
-            p = p->getNext();
+            p = p->getChild();
         }
     }
     else {
@@ -22,19 +22,19 @@ void LinkedList::printLinkedList() {
     }
 }
 
-void LinkedList::setHead(Node *node) {
+void LinkedList::setHead(Node<int> *node) {
     this->head = node;
 }
 
-Node *LinkedList::getHead() const {
+Node<int> *LinkedList::getHead() const {
     return head;
 }
 
-Node *LinkedList::getLast() const {
+Node<int> *LinkedList::getLast() const {
     return last;
 }
 
-void LinkedList::setLast(Node *last) {
+void LinkedList::setLast(Node<int> *last) {
     this->last = last;
 }
 

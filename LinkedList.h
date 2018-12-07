@@ -12,21 +12,21 @@ class LinkedList {
 private:
 
 protected:
-    Node *head;
-    Node *last;
+    Node<int> *head;
+    Node<int> *last;
     size_t size;
 public:
     LinkedList();
     ~LinkedList()= default;
 
-    void setHead(Node *node);
-    Node *getHead() const;
-    Node *getLast() const;
-    void setLast(Node *last);
+    void setHead(Node<int> *node);
+    Node<int> *getHead() const;
+    Node<int> *getLast() const;
+    void setLast(Node<int> *last);
     size_t getSize() const;
     bool isEmpty() const ;
-    virtual void addNode(Node *node)=0;
-    virtual void removeNode(Node *node)=0;
+    virtual void addNode(Node<int> *node)=0;
+    virtual void removeNode(Node<int> *node)=0;
     void printLinkedList();
 
 };

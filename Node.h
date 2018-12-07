@@ -1,37 +1,59 @@
-#ifndef FILE_SYSTEM_NODE_H
-#define FILE_SYSTEM_NODE_H
+#ifndef DATA_STRUCTURES_NODE_H
+#define DATA_STRUCTURES_NODE_H
 
-
-#include <cstddef>
 #include <ostream>
-#include <set>
+#include <iomanip>
 
-using namespace std;
-
+template <typename T>
 class Node {
 private:
-    Node *next;
-    Node *previous;
-    int value;
     size_t ID;
+    T value;
+    Node<T> *parent;
+    Node<T> *child;
+
 public:
-    Node();
-    explicit Node(int value);
-    ~Node()= default;
-    Node(const Node &node)= default;
-    Node &operator=(const Node &node)= default;
+    explicit Node(size_t ID, T value) : ID(ID), value(value) {}
+    ~Node() = default;
+    Node(const Node &node) = default;
+    Node &operator=(const Node &node) = default;
 
-    Node *getNext() const;
-    void setNext(Node *next);
-    Node *getPrevious() const;
-    void setPrevious(Node *previous);
-    int getValue() const;
-    void setValue(int value);
-    void setID(size_t ID);
-    size_t getID() const;
+    size_t getID() const {
+        return ID;
+    }
+    void setID(size_t ID) {
+        this->ID = ID;
+    }
+    T getValue() const {
+        return value;
+    }
+    void setValue(T value) {
+        this->value = value;
+    }
 
-    friend std::ostream &operator<<(std::ostream &os, const Node &node);
+    void setParent(Node<T> *parent){
+        this->parent = parent;
+    }
+    Node<T> *getParent() const {
+        return parent;
+    }
+    void setChild(Node<T> *child){
+        this->child= child;
+    }
+    Node<T> *getChild() const {
+        return child;
+    }
+
+    friend std::ostream &operator<<(std::ostream &os, const Node &node) {
+        os << "ID: " << node.ID << std::endl;
+        os << "Value: " << node.value << std::endl;
+        return os;
+    }
+
 };
 
 
-#endif //FILE_SYSTEM_NODE_H
+
+
+
+#endif //DATA_STRUCTURES_NODE_H
